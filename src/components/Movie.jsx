@@ -1,20 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	Grommet, Card, CardBody, Image, Box,
 } from 'grommet';
 import './movie.css';
+import styled from 'styled-components';
 import getMovies from './getMovies';
 
 const IMAGE_API = 'https://image.tmdb.org/t/p/w1280';
-const FEATURED_API = 'https://api.themoviedb.org/3/discover/movie?with_genres=18&primary_release_year=2021&api_key=7e8e9b1b8517251cd6b7aa61e0d98b61';
-// AXIOS ABFRAGE STELLEN hier handle ich die Suchanfragen von header und movie
+const DEFAULT_API = 'https://api.themoviedb.org/3/discover/movie?with_genres=18&primary_release_year=2021';
 
 function Movie() {
-	const [movies] = getMovies(FEATURED_API);
-	// console.log(movies);
+	const Container = styled(Box)`
+		@media (max-width: 1800px) {
+			justify-content: center;
+		}
+	`;
+
+	const [currentLink, setCurrentLink] = useState();
+
+	useEffect(() => {
+		setCurrentLink(DEFAULT_API);
+	}, []);
+	const [movies] = getMovies(currentLink);
 	return (
 		<Grommet>
-			<Box margin={{ top: '20px' }} direction="row" wrap="true" gap="1rem" justify="center">
+			<Container margin={{ top: '20px' }} direction="row" wrap="true" gap="1rem">
 				{movies?.results.map((movie) => (
 					<Card height="500px" width="300px" margin={{ top: '20px' }}>
 						<CardBody>
@@ -26,7 +36,7 @@ function Movie() {
 						</CardBody>
 					</Card>
 				))}
-			</Box>
+			</Container>
 
 		</Grommet>
 
