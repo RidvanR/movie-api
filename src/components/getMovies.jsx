@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-// umbauen mit axios
+
 function getMovies(link) {
 	const [movies, setMovies] = useState();
-	// Callback
-	useEffect(() => {
-		axios({
+
+	const newMovies = useCallback(() => {
+		setMovies((link) => {
+			axios({
 			method: 'get',
 			url: link,
 			params: {
@@ -14,9 +15,12 @@ function getMovies(link) {
 		}).then((response) => {
 			setMovies(response.data);
 		});
-	}, [link]);
+	}, [link]);})
+	})
+
+	return [movies];
+		
 	// return fällt weg
 	// return [movies];
-}
 
 export default getMovies;
