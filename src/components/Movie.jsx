@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
 	Grommet, Card, CardBody, Image, Box,
 } from 'grommet';
 import './movie.css';
 import styled from 'styled-components';
-import getMovies from './getMovies';
+import useGetMovies from './useGetMovies';
 
 const IMAGE_API = 'https://image.tmdb.org/t/p/w1280';
-const DEFAULT_API = 'https://api.themoviedb.org/3/discover/movie?with_genres=18&primary_release_year=2021';
 
 function Movie() {
 	const Container = styled(Box)`
@@ -16,17 +15,17 @@ function Movie() {
 		}
 	`;
 
-	const [currentLink, setCurrentLink] = useState();
+	const { movies } = useGetMovies({
+		method: 'get',
+		params: {
+		},
+	});
 
-	useEffect(() => {
-		setCurrentLink(DEFAULT_API);
-	}, []);
-	const [movies] = getMovies(currentLink);
 	return (
 		<Grommet>
-			<Container margin={{ top: '20px' }} direction="row" wrap="true" gap="1rem">
+			<Container margin={{ top: '20px' }} direction="row" wrap="true" gap="1rem" justify="center">
 				{movies?.results.map((movie) => (
-					<Card height="500px" width="300px" margin={{ top: '20px' }}>
+					<Card height="500px" width="320px" margin={{ top: '20px' }}>
 						<CardBody>
 							<Image
 								className="img"
