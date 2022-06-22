@@ -1,10 +1,14 @@
 .vote-avg {
-  background-color: #333333;
   padding: 0.5rem;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
-  margin-right: 10px;
   border-radius: 5px;
+  width: 8%;
+  height: 5%;
+  position: absolute;
+	top: 90%;
+	left: 5%;
+	color: white;
 }
 
 .vote-avg.green {
@@ -16,4 +20,75 @@
 
 .vote-avg.red {
     color: red;
+	position: relative;
 }
+
+.release {
+	padding: 0.5rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  border-radius: 5px;
+  width: 8%;
+  height: 5%;
+  position: absolute;
+	top: 90%;
+	right: 25%;
+	color: white;
+}
+
+.card {
+	position: relative;
+	filter: brightness(100%);
+	z-index: 0;
+}
+
+.card:hover {
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	opacity: 0;
+  }
+  
+  .card:hover .overlay {
+	opacity: 1;
+	-webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
+
+  .text {
+	color: white;
+	font-size: 20px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	text-align: center;
+  }
+
+  .img {
+	  filter: brightness(100%);
+  }
+
+  .card:hover .img {
+	  filter: brightness(10%);
+	  -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+  }
