@@ -4,7 +4,6 @@ import axios from 'axios';
 function useGetMovies(sort) {
 	const [movies, setMovies] = useState();
 	const result = sort.params.sort_by;
-	console.log(result);
 	useEffect(() => {
 		axios({
 			method: 'get',

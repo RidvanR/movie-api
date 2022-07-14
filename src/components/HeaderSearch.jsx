@@ -25,19 +25,20 @@ function HeaderSearch({ searchTerm, onSubmit, onClick }) {
 	};
 
 	return (
-		<Header background="neutral-2" justify="around" height="xsmall" wrap="true">
-			<Box height="xxsmall" width="small" alignContent="center">
+		<Header background="neutral-3" justify="between" height="xsmall">
+			<Box height="xsmall" width="small" alignContent="center" margin={{ left: 'small' }}>
 				<Image
 					fit="contain"
-					src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_square_1-5bdc75aaebeb75dc7ae79426ddd9be3b2be1e342510f8202baf6bffa71d7f5c4.svg"
+					src="https://react-movie-database-18.netlify.app/static/media/logo.27b65cb4.svg"
 				/>
 			</Box>
-			<Box direction="row" width="large" pad="medium" gap="small">
+			<Box direction="row" width="large" pad="small" gap="small" justify="center">
 				<Menu
 					label="Discover"
 					items={[
 						{ label: 'Popular', onClick: () => { handleonClick('popularity.desc'); } },
 						{ label: 'Release Date', onClick: () => { handleonClick('primary_release_date.desc'); } },
+						{ label: 'Highest R rated', onClick: () => { handleonClick('certification_country=US&certification=R&sort_by=vote_average.desc'); } },
 					]}
 				/>
 				<form onSubmit={handleonSubmit}>
@@ -49,8 +50,8 @@ function HeaderSearch({ searchTerm, onSubmit, onClick }) {
 						onChange={handleonChange}
 					/>
 				</form>
-				<Button href="https://github.com/RidvanR"><Github size="20%" color="accent-3" /></Button>
-				<Button href="https://www.instagram.com/ridvan.rul/"><Instagram size="20%" color="accent-3" /></Button>
+				<Button href="https://github.com/RidvanR"><Github size="20%" color="#FFAA15" /></Button>
+				<Button href="https://www.instagram.com/ridvan.rul/"><Instagram size="20%" color="#FFAA15" /></Button>
 			</Box>
 			{/* <Movie sort={sort} /> */}
 		</Header>

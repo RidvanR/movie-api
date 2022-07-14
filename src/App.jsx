@@ -28,7 +28,7 @@ function App() {
 				{!query ? <Movie sort={sort} /> : <SearchMovies query={query} />}
 			</Box>
 
-			<Footer background="neutral-2" pad="small" align="center">
+			<Footer background="dark-2" pad="small" align="center">
 				<Text>Created by Ridvan</Text>
 				<Box height="xxsmall" width="small" alignContent="center">
 					<Image

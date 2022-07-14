@@ -92,3 +92,11 @@
     -ms-transition: all 0.5s ease;
     transition: all 0.5s ease;
   }
+
+  .info {
+	background-color: blue;
+	position: absolute;
+	width: 90vw;
+	height: 80vh;
+	position: fixed;
+  }
