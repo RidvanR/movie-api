@@ -69,12 +69,21 @@ function Movie({ sort }) {
 				))}
 				{open && (
 					<div className="info">
-						<Card>
-							<CardHeader justify="end">
-								<Button><Favorite /></Button>
-								<Button onClick={handleonClick} width="small"><Close color="white" /></Button>
-							</CardHeader>
-						</Card>
+						{movies?.results.map((movie) => (
+							<Card>
+								<CardHeader justify="end">
+									<Button><Favorite /></Button>
+									<Button onClick={handleonClick} width="small"><Close color="white" /></Button>
+								</CardHeader>
+								<CardBody id={movie.id}>
+									<Image
+										className="img"
+										fit="cover"
+										src={IMAGE_API + movie.poster_path}
+									/>
+								</CardBody>
+							</Card>
+						))}
 					</div>
 				)}
 			</Container>

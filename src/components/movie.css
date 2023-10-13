@@ -94,9 +94,9 @@
   }
 
   .info {
-	background-color: blue;
-	position: absolute;
-	width: 90vw;
-	height: 80vh;
+	width: auto;
+	height: auto;
 	position: fixed;
+	top: 1px;
+	overflow: hidden;
   }
